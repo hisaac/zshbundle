@@ -46,6 +46,10 @@ run = ["mise upgrade --bump", "mise lock"]
 alias = "zshbundle"
 run = "src/main.zsh"
 
+[tasks.test]
+alias = "t"
+run = "tests/run.zsh"
+
 # Hidden Tasks
 
 [tasks._bootstrap_hk]

@@ -1,14 +1,10 @@
-#!/usr/bin/env zsh
-
 # Guard to ensure this file is not double-loaded
 if ((${__common_zsh_loaded:-0})); then
 	return 0
 fi
 __common_zsh_loaded=1
 
-setopt ERR_EXIT
-setopt NO_UNSET
-setopt PIPE_FAIL
+setopt ERR_EXIT NO_UNSET PIPE_FAIL
 
 if [[ "${TRACE:-}" == true || "${DEBUG:-}" == true ]]; then
 	setopt XTRACE
