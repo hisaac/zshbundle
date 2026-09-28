@@ -40,10 +40,22 @@ run = ["mise upgrade", "mise lock"]
 [tasks.upg]
 run = ["mise upgrade --bump", "mise lock"]
 
+# Running Tasks
+
+[tasks.run]
+alias = "zshbundle"
+run = "src/main.zsh"
+
 # Hidden Tasks
 
 [tasks._bootstrap_hk]
 hide = true
-run = "scripts/update-hk-import.bash"
-sources = ["hk.pkl", "mise.lock", "mise.toml", "scripts/update-hk-import.bash"]
+run = "scripts/update-hk-import.zsh"
+sources = [
+  "hk.pkl",
+  "mise.lock",
+  "mise.toml",
+  "scripts/lib/common.zsh",
+  "scripts/update-hk-import.zsh",
+]
 outputs = { auto = true }

@@ -7,3 +7,9 @@
 # caches
 .cache/
 .lycheecache
+
+# bundled
+.dist/
+
+# artifacts
+.artifacts/
