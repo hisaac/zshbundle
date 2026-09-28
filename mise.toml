@@ -1,0 +1,49 @@
+[settings]
+activate_aggressive = true
+experimental = true
+lockfile = true
+minimum_release_age = "0"
+
+[tools]
+actionlint = "latest"
+"aqua:owenlamont/ryl" = "latest"
+editorconfig-checker = "latest"
+hk = "latest"
+ls-lint = "latest"
+lychee = "latest"
+pkl = "latest"
+shfmt = "latest"
+tombi = "latest"
+
+[hooks]
+postinstall = "mise run bootstrap"
+
+# Tasks
+
+[tasks.bootstrap]
+run = ["hk install --mise", { task = "_bootstrap_hk" }]
+
+[tasks.pre-commit]
+run = "hk run pre-commit"
+
+[tasks.check]
+alias = ["chk", "lint"]
+run = "hk check --all"
+
+[tasks.fix]
+alias = ["fmt", "format"]
+run = "hk fix --all"
+
+[tasks.upd]
+run = ["mise upgrade", "mise lock"]
+
+[tasks.upg]
+run = ["mise upgrade --bump", "mise lock"]
+
+# Hidden Tasks
+
+[tasks._bootstrap_hk]
+hide = true
+run = "scripts/update-hk-import.bash"
+sources = ["hk.pkl", "mise.lock", "mise.toml", "scripts/update-hk-import.bash"]
+outputs = { auto = true }
