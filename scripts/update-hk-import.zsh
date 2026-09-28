@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 source "${0:A:h}/lib/common.zsh" || exit 1
 

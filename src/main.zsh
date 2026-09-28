@@ -1,3 +1,3 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 print "hi"

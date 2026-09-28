@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 readonly tests_directory="${0:A:h}"
 source "${tests_directory}/../scripts/lib/common.zsh" || exit 1
