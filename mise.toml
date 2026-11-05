@@ -2,7 +2,7 @@
 activate_aggressive = true
 experimental = true
 lockfile = true
-minimum_release_age = "0"
+minimum_release_age = "0s"
 
 [tools]
 actionlint = "latest"
