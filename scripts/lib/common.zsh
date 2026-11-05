@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Guard to ensure this file is not double-loaded
 if ((${__common_zsh_loaded:-0})); then
 	return 0

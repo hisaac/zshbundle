@@ -5,7 +5,7 @@ yaml = [
 	".yamllint",
 ]
 
-[rules]
+[lint.rules]
 anchors = "enable"
 braces = "enable"
 brackets = "enable"
@@ -26,8 +26,8 @@ octal-values = "disable"
 quoted-strings = "disable"
 trailing-spaces = "enable"
 
-[rules.comments]
+[lint.rules.comments]
 min-spaces-from-content = 1
 
-[per-file-ignores]
+[lint.per-file-ignores]
 ".github/workflows/*" = ["truthy"]

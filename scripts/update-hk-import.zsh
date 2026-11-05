@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 source "${0:A:h}/lib/common.zsh" || exit 1
 
@@ -24,11 +24,14 @@ function main {
 	temp_path="$(mktemp "${TMPDIR:-/tmp}/update-hk-import.XXXXXX")"
 	readonly temp_path
 
-	sed -E \
-		"s|package://github\.com/jdx/hk/releases/download/v[^/]+/hk@[^#]+#/|package://github.com/jdx/hk/releases/download/v${hk_version}/hk@${hk_version}#/|g" \
-		"${config_path}" >"${temp_path}" || exit 1
-
-	cat "${temp_path}" >"${config_path}"
+	{
+		sed -E \
+			"s|package://github\.com/jdx/hk/releases/download/v[^/]+/hk@[^#]+#/|package://github.com/jdx/hk/releases/download/v${hk_version}/hk@${hk_version}#/|g" \
+			"${config_path}" >"${temp_path}"
+		cat "${temp_path}" >"${config_path}"
+	} always {
+		rm -f -- "${temp_path}"
+	}
 }
 
 main "$@"

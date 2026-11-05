@@ -3,5 +3,6 @@ ls:
   .*: kebab-case
 
 ignore:
+  - .ryl_cache
   - README.md
   - LICENSE.md

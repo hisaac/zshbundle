@@ -1,6 +1,6 @@
-amends "package://github.com/jdx/hk/releases/download/v2.3.1/hk@2.3.1#/Config.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Config.pkl"
 
-import "package://github.com/jdx/hk/releases/download/v2.3.1/hk@2.3.1#/Builtins.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Builtins.pkl"
 
 fail_fast = false
 env {
@@ -14,7 +14,10 @@ steps {
   ["pkl"] = Builtins.pkl
   ["pkl-format"] = Builtins.pkl_format
   ["ryl"] = Builtins.ryl
-  ["shfmt"] = Builtins.shfmt
+  ["shfmt"] = (Builtins.shfmt) {
+    // shfmt cannot parse Zsh's always construct.
+    exclude = "scripts/update-hk-import.zsh"
+  }
   ["tombi"] = Builtins.tombi
 
   ["ls-lint"] = (Builtins.ls_lint) {

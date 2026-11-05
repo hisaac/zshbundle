@@ -35,10 +35,10 @@ alias = ["fmt", "format"]
 run = "hk fix --all"
 
 [tasks.upd]
-run = ["mise upgrade", "mise lock"]
+run = ["mise upgrade", "mise lock", { task = "_bootstrap_hk" }]
 
 [tasks.upg]
-run = ["mise upgrade --bump", "mise lock"]
+run = ["mise upgrade --bump", "mise lock", { task = "_bootstrap_hk" }]
 
 # Running Tasks
 
@@ -55,11 +55,3 @@ run = "tests/run.zsh"
 [tasks._bootstrap_hk]
 hide = true
 run = "scripts/update-hk-import.zsh"
-sources = [
-  "hk.pkl",
-  "mise.lock",
-  "mise.toml",
-  "scripts/lib/common.zsh",
-  "scripts/update-hk-import.zsh",
-]
-outputs = { auto = true }
